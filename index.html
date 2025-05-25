@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johgan Sterio | Artist & Producer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6d28d9',
+                        secondary: '#f59e0b',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(45deg, #6d28d9, #f59e0b);
+        }
+        
+        .section {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .btn-hover {
+            transition: all 0.3s;
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-container {
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-container iframe {
+            height: 100%;
+            width: 100%;
+            border: none;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(45deg, #6d28d9, #f59e0b);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark dark:bg-dark dark:text-light">
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="fixed top-6 right-6 z-50 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg">
+        <i id="theme-icon" class="fas fa-moon text-gray-800 dark:text-yellow-300"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-40 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">Johgan Studios</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#music" class="nav-link">Music</a>
+                    <a href="#studio" class="nav-link">Studio</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-800 dark:text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 px-6 py-4">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#music" class="nav-link">Music</a>
+                <a href="#studio" class="nav-link">Studio</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 section">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 font-display">
+                        <span class="gradient-text">JOHGAN</span> STERIO
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-600 dark:text-gray-300">
+                        Artist. Producer. Sound Engineer. Creating unforgettable musical experiences.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#music" class="btn-hover px-8 py-3 bg-primary text-white rounded-full font-medium shadow-lg">
+                            Explore My Work
+                        </a>
+                        <a href="#studio" class="btn-hover px-8 py-3 border-2 border-primary text-primary dark:text-white rounded-full font-medium">
+                            Studio Services
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 section delay-1">
+                    <div class="relative">
+                        <div class="w-full h-96 md:h-[500px] bg-gradient-to-br from-primary to-secondary rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="studio-photo.jpg" 
+                             alt="Johgan Studios performing" 
+                             class="w-full h-full object-cover opacity-90">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-xl">
+                            <div class="w-28 h-28 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 section">
+                <h2 class="text-4xl font-bold mb-4 font-display">My <span class="gradient-text">Journey</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                    From bedroom producer to professional artist and studio owner
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2 section delay-1">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4">The Artist</h3>
+                        <p class="mb-6 text-gray-600 dark:text-gray-300">
+                            I've been creating music since I was 14, starting with simple beats on my laptop. 
+                            Over the years, I've developed a unique sound that blends electronic, hip-hop, 
+                            and alternative influences into something truly my own.
+                        </p>
+                        <p class="mb-6 text-gray-600 dark:text-gray-300">
+                            My Upcoming EP "Chiyambi", and I've since 
+                            collaborated with major artists across genres. Music isn't just what I do—it's who I am.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-music text-primary"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold">15+</p>
+                                    <p class="text-sm text-gray-500">Original Tracks</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-secondary/10 dark:bg-secondary/20 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-headphones text-secondary"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold">20K+</p>
+                                    <p class="text-sm text-gray-500">Streams</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 section delay-2">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4">The Studio</h3>
+                        <p class="mb-6 text-gray-600 dark:text-gray-300">
+                            JohganRecord Studios was born from my passion for perfect sound. After years of working 
+                            in various studios, I wanted to create a space that combines cutting-edge technology 
+                            with creative energy.
+                        </p>
+                        <p class="mb-6 text-gray-600 dark:text-gray-300">
+                            Our studio offers professional recording, mixing, and mastering services, along with 
+                            production collaboration. Whether you're an emerging artist or established act, we 
+                            provide the tools and expertise to bring your vision to life.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-microphone text-primary"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold">1</p>
+                                    <p class="text-sm text-gray-500">Recording Rooms</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-secondary/10 dark:bg-secondary/20 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-sliders-h text-secondary"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold">50+</p>
+                                    <p class="text-sm text-gray-500">Projects Completed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 section">
+                <h2 class="text-4xl font-bold mb-4 font-display">My <span class="gradient-text">Music</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                    Explore my latest releases and productions
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="section delay-1">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="Music Video" 
+                                 class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                                    <i class="fas fa-play text-primary text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Music Videos</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Visually stunning stories that bring my music to life
+                            </p>
+                            <a href="video.html" class="text-primary font-medium flex items-center">
+                                Watch Now <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section delay-2">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="Audio Tracks" 
+                                 class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                                    <i class="fas fa-headphones text-primary text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Audio Tracks</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                My complete discography available on all platforms
+                            </p>
+                            <a href="#" class="text-primary font-medium flex items-center">
+                                Listen Now <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section delay-3">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="Productions" 
+                                 class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                                    <i class="fas fa-sliders-h text-primary text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Productions</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Tracks I've produced for other artists
+                            </p>
+                            <a href="#" class="text-primary font-medium flex items-center">
+                                Explore <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio Section -->
+<section id="studio" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16 section">
+            <h2 class="text-4xl font-bold mb-4 font-display">JohganSound <span class="gradient-text">Studios</span></h2>
+            <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                Professional recording and production services in a creative environment
+            </p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+            <!-- Services -->
+            <div class="lg:w-1/2 section delay-1">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6">Our Services</h3>
+
+                    <div class="mb-8">
+                        <!-- Recording -->
+                        <div class="flex items-start mb-6">
+                            <div class="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-microphone text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold mb-2">Recording</h4>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    State-of-the-art recording facilities with premium microphones and preamps. 
+                                    Perfect for vocals, instruments, and full band sessions.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Mixing & Mastering -->
+                        <div class="flex items-start mb-6">
+                            <div class="w-12 h-12 bg-secondary/10 dark:bg-secondary/20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-sliders-h text-secondary"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold mb-2">Mixing & Mastering</h4>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Professional mixing and mastering services to polish your tracks to 
+                                    commercial quality standards.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Production -->
+                        <div class="flex items-start mb-6">
+                            <div class="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-music text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold mb-2">Production</h4>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Full production services from concept to final master. Let's create 
+                                    something amazing together.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Instrumental / Beat Making -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-pink-100 dark:bg-pink-800/30 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-drum text-pink-600 dark:text-pink-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold mb-2">Instrumental / Beat Making</h4>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Custom beats tailored to your style — hip-hop, afrobeat, trap, and more. 
+                                    Work with experienced producers to craft your signature sound.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn-hover inline-block px-8 py-3 bg-primary text-white rounded-full font-medium shadow-lg">
+                        Book a Session
+                    </a>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="lg:w-1/2 h-96 section delay-2">
+                <div class="map-container h-full">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10423.092782961941!2d34.62848050219015!3d-14.815022239900518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18df5a5a10e7bf73%3A0x8013feeb74d9a983!2sNtcheu!5e1!3m2!1sen!2smw!4v1748114515976!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+<section id="contact" class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16 section">
+            <h2 class="text-4xl font-bold mb-4 font-display">Get In <span class="gradient-text">Touch</span></h2>
+            <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                For bookings, studio sessions, or collaborations
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            <!-- Contact Info Block -->
+            <div class="space-y-6 section delay-1">
+                <div class="flex items-start">
+                    <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full mr-4">
+                        <i class="fas fa-map-marker-alt text-purple-600 dark:text-purple-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">Address</h4>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Ntcheu, Malawi
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-amber-100 dark:bg-amber-900 p-3 rounded-full mr-4">
+                        <i class="fas fa-envelope text-amber-600 dark:text-amber-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">Email</h4>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            johgansterio873@gmail.com
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                        <i class="fas fa-phone text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">Phone</h4>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            (+265) 995 13 99 31
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg section delay-1">
+                <form>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block mb-2 font-medium">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 font-medium">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject" class="block mb-2 font-medium">Subject</label>
+                        <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block mb-2 font-medium">Message</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700"></textarea>
+                    </div>
+                    <button type="submit" class="btn-hover w-full md:w-auto px-8 py-3 bg-primary text-white rounded-full font-medium shadow-lg">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-900 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold gradient-text">Johgan Studios</a>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">
+                        Every Sound Has Meaning.
+                    </p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://facebook.com/profile.php?id=100089018084284" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                    <i class="fab fa-facebook-f text-2xl"></i>
+                    </a>
+
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        <i class="fab fa-spotify text-2xl"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@johgansterio8633" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        <i class="fab fa-youtube text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        <i class="fab fa-soundcloud text-2xl"></i>
+                    </a>
+
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-8 pt-8 text-center text-gray-600 dark:text-gray-300">
+    <p>&copy; 2025 Johgan Studios. All rights reserved.</p>
+    <p>Developed by <span class="text-primary font-semibold">Allanie Aloe</span></p>
+</div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        
+        if (localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Scroll to section
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = function() {
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.style.opacity = '1';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
